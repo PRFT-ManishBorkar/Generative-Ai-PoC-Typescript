@@ -1,48 +1,48 @@
 import { useState, useRef, useEffect } from "react";
 import { Writer } from "@writerai/writer-sdk";
 
-const inputText = `1. Get ready to charge up in a flash with the EcoDrive Electric Vehicle Charger. This high-powered charger quickly and efficiently recharges your electric vehicle. You can also use the mobile app to start, stop, and schedule charging sessions remotely. Plus, the app also tracks your energy consumption and costs so you can stay informed on your usage. Get ready to charge up in a jiffy with the EcoDrive Electric Vehicle Charger.
+// const inputText = `1. Get ready to charge up in a flash with the EcoDrive Electric Vehicle Charger. This high-powered charger quickly and efficiently recharges your electric vehicle. You can also use the mobile app to start, stop, and schedule charging sessions remotely. Plus, the app also tracks your energy consumption and costs so you can stay informed on your usage. Get ready to charge up in a jiffy with the EcoDrive Electric Vehicle Charger.
 
-2. Make charging your electric vehicle a breeze with the EcoDrive Electric Vehicle Charger. This advanced charger is designed to charge your vehicle quickly and efficiently. You can also monitor your electricity consumption with the mobile app, which allows you to start, stop, and schedule charging sessions remotely. Save time and money with the EcoDrive Electric Vehicle Charger.
+// 2. Make charging your electric vehicle a breeze with the EcoDrive Electric Vehicle Charger. This advanced charger is designed to charge your vehicle quickly and efficiently. You can also monitor your electricity consumption with the mobile app, which allows you to start, stop, and schedule charging sessions remotely. Save time and money with the EcoDrive Electric Vehicle Charger.
 
-3. Save time and money with the EcoDrive Electric Vehicle Charger. Perfect for the modern driver, this charger quickly and efficiently recharges your electric vehicle. You can also control charging sessions remotely using the mobile app, which also keeps track of your energy consumption and costs. Get ready to hit the road with the EcoDrive Electric Vehicle Charger.`;
+// 3. Save time and money with the EcoDrive Electric Vehicle Charger. Perfect for the modern driver, this charger quickly and efficiently recharges your electric vehicle. You can also control charging sessions remotely using the mobile app, which also keeps track of your energy consumption and costs. Get ready to hit the road with the EcoDrive Electric Vehicle Charger.`;
 
-const inputText2 = `Variation 1:
-For those who love fresh, organic fruit, look no further than Mango. This sweet, juicy, and delicious fruit is a great addition to any meal or snack. Whether you're looking for a healthy snack or a burst of flavor to add to your favorite recipes, Mango is the perfect choice. The perfect combination of sweet and tart, Mango is a great source of vitamins and minerals. Enjoy it on its own, in smoothies, salads, or your favorite desserts.
+// const inputText2 = `Variation 1:
+// For those who love fresh, organic fruit, look no further than Mango. This sweet, juicy, and delicious fruit is a great addition to any meal or snack. Whether you're looking for a healthy snack or a burst of flavor to add to your favorite recipes, Mango is the perfect choice. The perfect combination of sweet and tart, Mango is a great source of vitamins and minerals. Enjoy it on its own, in smoothies, salads, or your favorite desserts.
 
-Variation 2:
+// Variation 2:
 
-Experience the sweet, juicy flavor of Mango. This delicious, organic fruit is the perfect addition to any meal or snack. Not only is Mango packed with vitamins and minerals, but it also adds just the right amount of flavor and sweetness to your favorite recipes. Enjoy it on its own, as a snack, or add it to smoothies, salads, and desserts. For a delicious and nutritious treat, look no further than Mango.
+// Experience the sweet, juicy flavor of Mango. This delicious, organic fruit is the perfect addition to any meal or snack. Not only is Mango packed with vitamins and minerals, but it also adds just the right amount of flavor and sweetness to your favorite recipes. Enjoy it on its own, as a snack, or add it to smoothies, salads, and desserts. For a delicious and nutritious treat, look no further than Mango.
 
-Variation 3:
+// Variation 3:
 
-Make your meals and snacks a little sweeter with Mango. This organic, juicy, and delicious fruit is packed with vitamins and minerals, and adds a burst of flavor to your favorite recipes. Whether you're looking for a healthy snack or something to add to your smoothie, salad, or dessert, Mango is the perfect choice. Treat yourself to the sweet, tart flavor of Mango today.`;
+// Make your meals and snacks a little sweeter with Mango. This organic, juicy, and delicious fruit is packed with vitamins and minerals, and adds a burst of flavor to your favorite recipes. Whether you're looking for a healthy snack or something to add to your smoothie, salad, or dessert, Mango is the perfect choice. Treat yourself to the sweet, tart flavor of Mango today.`;
 
-const inputText3 = `1). Get ready to charge up in a flash with the EcoDrive Electric Vehicle Charger. This high-powered charger quickly and efficiently recharges your electric vehicle. You can also use the mobile app to start, stop, and schedule charging sessions remotely. Plus, the app also tracks your energy consumption and costs so you can stay informed on your usage. Get ready to charge up in a jiffy with the EcoDrive Electric Vehicle Charger.
+// const inputText3 = `1). Get ready to charge up in a flash with the EcoDrive Electric Vehicle Charger. This high-powered charger quickly and efficiently recharges your electric vehicle. You can also use the mobile app to start, stop, and schedule charging sessions remotely. Plus, the app also tracks your energy consumption and costs so you can stay informed on your usage. Get ready to charge up in a jiffy with the EcoDrive Electric Vehicle Charger.
 
-2). Make charging your electric vehicle a breeze with the EcoDrive Electric Vehicle Charger. This advanced charger is designed to charge your vehicle quickly and efficiently. You can also monitor your electricity consumption with the mobile app, which allows you to start, stop, and schedule charging sessions remotely. Save time and money with the EcoDrive Electric Vehicle Charger.
+// 2). Make charging your electric vehicle a breeze with the EcoDrive Electric Vehicle Charger. This advanced charger is designed to charge your vehicle quickly and efficiently. You can also monitor your electricity consumption with the mobile app, which allows you to start, stop, and schedule charging sessions remotely. Save time and money with the EcoDrive Electric Vehicle Charger.
 
-3). Save time and money with the EcoDrive Electric Vehicle Charger. Perfect for the modern driver, this charger quickly and efficiently recharges your electric vehicle. You can also control charging sessions remotely using the mobile app, which also keeps track of your energy consumption and costs. Get ready to hit the road with the EcoDrive Electric Vehicle Charger.`;
+// 3). Save time and money with the EcoDrive Electric Vehicle Charger. Perfect for the modern driver, this charger quickly and efficiently recharges your electric vehicle. You can also control charging sessions remotely using the mobile app, which also keeps track of your energy consumption and costs. Get ready to hit the road with the EcoDrive Electric Vehicle Charger.`;
 
-const inputText4 = `Version 1: For the 30- or 40-something who wants to make a statement, the Eco Alto 500 is the perfect electric car. This stylish electric car will turn heads with its sleek design and variety of color options. But the features don't stop there. The Eco Alto 500 is also incredibly efficient, boasting 1000 km on a single charge and 500 horse power. Make a statement and go green with the Eco Alto 500. Version 2: Eco Alto 500 is the perfect luxury electric car for the social upper-class. Not only is this stylish car available in a variety of colors, it is also incredibly efficient. With 1000km in one charge and 500 horse power, the Eco Alto 500 is sure to impress. This electric car is the perfect way to make a statement while still being conscious of the environment. Version 3: If you're looking for a luxury electric car that will make a statement, the Eco Alto 500 is the perfect choice. Not only does this car have a sleek and stylish design, but it is also incredibly efficient. With 1000km in one charge and 500 horse power, the Eco Alto 500 is sure to turn heads. Plus, it comes in a variety of colors, so you can find the perfect one for you. Make a statement and go green with the Eco Alto 500.`;
+// const inputText4 = `Version 1: For the 30- or 40-something who wants to make a statement, the Eco Alto 500 is the perfect electric car. This stylish electric car will turn heads with its sleek design and variety of color options. But the features don't stop there. The Eco Alto 500 is also incredibly efficient, boasting 1000 km on a single charge and 500 horse power. Make a statement and go green with the Eco Alto 500. Version 2: Eco Alto 500 is the perfect luxury electric car for the social upper-class. Not only is this stylish car available in a variety of colors, it is also incredibly efficient. With 1000km in one charge and 500 horse power, the Eco Alto 500 is sure to impress. This electric car is the perfect way to make a statement while still being conscious of the environment. Version 3: If you're looking for a luxury electric car that will make a statement, the Eco Alto 500 is the perfect choice. Not only does this car have a sleek and stylish design, but it is also incredibly efficient. With 1000km in one charge and 500 horse power, the Eco Alto 500 is sure to turn heads. Plus, it comes in a variety of colors, so you can find the perfect one for you. Make a statement and go green with the Eco Alto 500.`;
 
-const inputText5 = `1) Get ready to charge up in a flash with the EcoDrive Electric Vehicle Charger. This high-powered charger quickly and efficiently recharges your electric vehicle. You can also use the mobile app to start, stop, and schedule charging sessions remotely. Plus, the app also tracks your energy consumption and costs so you can stay informed on your usage. Get ready to charge up in a jiffy with the EcoDrive Electric Vehicle Charger.
+// const inputText5 = `1) Get ready to charge up in a flash with the EcoDrive Electric Vehicle Charger. This high-powered charger quickly and efficiently recharges your electric vehicle. You can also use the mobile app to start, stop, and schedule charging sessions remotely. Plus, the app also tracks your energy consumption and costs so you can stay informed on your usage. Get ready to charge up in a jiffy with the EcoDrive Electric Vehicle Charger.
 
-2) Make charging your electric vehicle a breeze with the EcoDrive Electric Vehicle Charger. This advanced charger is designed to charge your vehicle quickly and efficiently. You can also monitor your electricity consumption with the mobile app, which allows you to start, stop, and schedule charging sessions remotely. Save time and money with the EcoDrive Electric Vehicle Charger.
+// 2) Make charging your electric vehicle a breeze with the EcoDrive Electric Vehicle Charger. This advanced charger is designed to charge your vehicle quickly and efficiently. You can also monitor your electricity consumption with the mobile app, which allows you to start, stop, and schedule charging sessions remotely. Save time and money with the EcoDrive Electric Vehicle Charger.
 
-3) Save time and money with the EcoDrive Electric Vehicle Charger. Perfect for the modern driver, this charger quickly and efficiently recharges your electric vehicle. You can also control charging sessions remotely using the mobile app, which also keeps track of your energy consumption and costs. Get ready to hit the road with the EcoDrive Electric Vehicle Charger.`;
+// 3) Save time and money with the EcoDrive Electric Vehicle Charger. Perfect for the modern driver, this charger quickly and efficiently recharges your electric vehicle. You can also control charging sessions remotely using the mobile app, which also keeps track of your energy consumption and costs. Get ready to hit the road with the EcoDrive Electric Vehicle Charger.`;
 
-const sentences = inputText4
-  // .split(/\d+\)\. |Variation [1-3]+\: |\d+\./)
-  // .replace(/\s+$/, "")
-  // .split(/(?:Variation [1-5]: )|(?:[1-5]\)\. )/)
-  .split(
-    /[1-5]+(?:\)|\)\.) |(?:Variation|Version) [1-5]+(?::\s|\s)|[1-5]+\.\s/g
-  )
-  // .split(/Variation [1-3]:/g)
-  .filter(Boolean);
+// const sentences = inputText4
+// .split(/\d+\)\. |Variation [1-3]+\: |\d+\./)
+// .replace(/\s+$/, "")
+// .split(/(?:Variation [1-5]: )|(?:[1-5]\)\. )/)
+// .split(
+//   /[1-5]+(?:\)|\)\.) |(?:Variation|Version) [1-5]+(?::\s|\s)|[1-5]+\.\s/g
+// )
+// .split(/Variation [1-3]:/g)
+// .filter(Boolean);
 
-console.log(sentences);
+// console.log(sentences);
 
 const resultArray: { id: number; content: string | undefined }[] = [];
 
@@ -243,71 +243,71 @@ function PdpComp() {
       });
   };
 
-  const testGrammer = async () => {
-    // writerSdk.content
-    //   .check({
-    //     contentRequest: {
-    //       content: "cum",
-    //       settings: {
-    //         ageAndFamilyStatus: false,
-    //         confidence: false,
-    //         contentSafeguards: false,
-    //         disability: false,
-    //         genderIdentitySensitivity: false,
-    //         genderInclusiveNouns: false,
-    //         genderInclusivePronouns: false,
-    //         grammar: false,
-    //         healthyCommunication: false,
-    //         passiveVoice: false,
-    //         raceEthnicityNationalitySensitivity: false,
-    //         sexualOrientationSensitivity: false,
-    //         spelling: false,
-    //         substanceUseSensitivity: false,
-    //         unclearReference: false,
-    //         wordiness: false,
-    //       },
-    //     },
-    //     teamId: 619221,
-    //   })
-    //   .then((res: ContentCheckResponse) => {
-    //     if (res.statusCode == 200) {
-    //       // handle response
-    //       console.log("Check Response ==> ", res);
-    //     }
-    //   });
-    writerSdk.content
-      .check({
-        contentRequest: {
-          content: `${pdetails}`,
-          settings: {
-            grammar: true,
-            spelling: true,
-            contentSafeguards: true,
-            ageAndFamilyStatus: false,
-            confidence: false,
-            disability: false,
-            genderIdentitySensitivity: false,
-            genderInclusiveNouns: false,
-            genderInclusivePronouns: false,
-            healthyCommunication: false,
-            passiveVoice: false,
-            raceEthnicityNationalitySensitivity: false,
-            sexualOrientationSensitivity: false,
-            substanceUseSensitivity: false,
-            unclearReference: false,
-            wordiness: false,
-          },
-        },
-        organizationId: 612269,
-        teamId: 619221,
-      })
-      .then((res) => {
-        console.log("CheckRes ==> ", res);
-      })
-      .catch((error) => {
-        console.log("CheckRes error ==> ", error);
-      });
-  };
+  // const testGrammer = async () => {
+  // writerSdk.content
+  //   .check({
+  //     contentRequest: {
+  //       content: "cum",
+  //       settings: {
+  //         ageAndFamilyStatus: false,
+  //         confidence: false,
+  //         contentSafeguards: false,
+  //         disability: false,
+  //         genderIdentitySensitivity: false,
+  //         genderInclusiveNouns: false,
+  //         genderInclusivePronouns: false,
+  //         grammar: false,
+  //         healthyCommunication: false,
+  //         passiveVoice: false,
+  //         raceEthnicityNationalitySensitivity: false,
+  //         sexualOrientationSensitivity: false,
+  //         spelling: false,
+  //         substanceUseSensitivity: false,
+  //         unclearReference: false,
+  //         wordiness: false,
+  //       },
+  //     },
+  //     teamId: 619221,
+  //   })
+  //   .then((res: ContentCheckResponse) => {
+  //     if (res.statusCode == 200) {
+  //       // handle response
+  //       console.log("Check Response ==> ", res);
+  //     }
+  //   });
+  //   writerSdk.content
+  //     .check({
+  //       contentRequest: {
+  //         content: `${pdetails}`,
+  //         settings: {
+  //           grammar: true,
+  //           spelling: true,
+  //           contentSafeguards: true,
+  //           ageAndFamilyStatus: false,
+  //           confidence: false,
+  //           disability: false,
+  //           genderIdentitySensitivity: false,
+  //           genderInclusiveNouns: false,
+  //           genderInclusivePronouns: false,
+  //           healthyCommunication: false,
+  //           passiveVoice: false,
+  //           raceEthnicityNationalitySensitivity: false,
+  //           sexualOrientationSensitivity: false,
+  //           substanceUseSensitivity: false,
+  //           unclearReference: false,
+  //           wordiness: false,
+  //         },
+  //       },
+  //       organizationId: 612269,
+  //       teamId: 619221,
+  //     })
+  //     .then((res) => {
+  //       console.log("CheckRes ==> ", res);
+  //     })
+  //     .catch((error) => {
+  //       console.log("CheckRes error ==> ", error);
+  //     });
+  // };
 
   const handleContentSelect = (content: string) => {
     setPdetails(content);
