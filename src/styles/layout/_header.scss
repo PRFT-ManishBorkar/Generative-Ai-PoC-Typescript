@@ -1,0 +1,21 @@
+.header {
+    width: 100%;
+    background-color: $secondary;
+
+    &__headerwrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 70px;
+    }
+
+    &__logo {
+        width: 150px;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

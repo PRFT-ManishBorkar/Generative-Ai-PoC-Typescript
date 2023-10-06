@@ -1,0 +1,66 @@
+@import '../../styles/base';
+
+@keyframes toast-in-up {
+    from {
+        transform: translate(-50%, -100%);
+    }
+
+    to {
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes toast-out-up {
+    from {
+        transform: translate(-50%, 0);
+        top: 12%;
+    }
+
+    to {
+        transform: translate(-50%, -100%);
+        top: 0;
+    }
+}
+
+.toast {
+    background-color: $secondary;
+    width: 80%;
+    box-shadow: $boxshadow2;
+    position: fixed;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: -105px;
+    z-index: 99999;
+    border-radius: 3px;
+
+
+
+    @media (min-width: 52.125rem) {
+        min-width: 285px;
+        width: auto;
+    }
+
+    &__message {
+        font-weight: 700;
+        color: $white;
+        text-align: center;
+        width: 100%;
+    }
+
+    &--active {
+        top: 12%;
+        transition: transform .6s ease-in-out;
+        animation: toast-in-up .7s;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    &--inactive {
+        transition: transform .10s ease-in-out;
+        animation: toast-out-up .7s;
+    }
+}

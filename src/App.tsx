@@ -1,11 +1,14 @@
 import { useState } from "react";
-import "./App.css";
-import TestComp from "./Component/TestComp";
+import PdpComp from "./Component/PdpComp";
+import Header from "./Component/Layout/Header";
+import Footer from "./Component/Layout/Footer";
 
 function App() {
   return (
     <>
-      <TestComp />
+      <Header />
+      <PdpComp />
+      <Footer />
     </>
   );
 }

@@ -5,7 +5,7 @@ import {
   ListTemplatesResponse,
 } from "@writerai/writer-sdk/dist/sdk/models/operations";
 
-function TestComp() {
+function PdpComp() {
   const writerSdk = new Writer({
     security: {
       apiKey:
@@ -210,4 +210,4 @@ function TestComp() {
   );
 }
 
-export default TestComp;
+export default PdpComp;

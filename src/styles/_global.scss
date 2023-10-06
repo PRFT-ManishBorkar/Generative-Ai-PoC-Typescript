@@ -1,0 +1,155 @@
+html {
+    height: 100%;
+    overflow-x: hidden;
+    font-size: 100%;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    position: relative;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: $fontPrimary;
+}
+
+// .container {
+//     position: relative;
+//     display: flex;
+//     flex-wrap: wrap;
+//     width: 100%;
+//     max-width: 100%;
+//     padding-right: 16px;
+//     padding-left: 16px;
+
+//     @media(min-width: 992) {
+//         width: 992px;
+//         max-width: 100%;
+//         margin: 0 auto;
+//     }
+
+//     @media(min-width: 1200px) {
+//         width: 1200px;
+//         max-width: 100%;
+//         margin: 0 auto;
+//     }
+
+//     @media(min-width: 1440px) {
+//         width: 1440px;
+//         max-width: 100%;
+//         margin: 0 auto;
+//     }
+// }
+
+.container {
+    margin: 0 auto;
+    max-width: 100%;
+
+    @media (max-width: #{$breakpoint-xs}) {
+        max-width: #{$breakpoint-xs};
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    @media (min-width: #{$breakpoint-sm}) {
+        max-width: #{$breakpoint-sm};
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @media (min-width: #{$breakpoint-md}) {
+        max-width: #{$breakpoint-md};
+    }
+
+    @media (min-width: #{$breakpoint-lg}) {
+        max-width: #{$breakpoint-lg};
+    }
+
+    @media (min-width: #{$breakpoint-xl}) {
+        max-width: #{$breakpoint-xl};
+    }
+}
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    min-width: 140px;
+    min-height: 40px;
+    padding: 10px 24px;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: $fontPrimary;
+    line-height: 100%;
+    letter-spacing: normal;
+    text-align: center;
+    text-decoration: none;
+    transition: all ease 0.3s;
+    border: 1px solid $lightgrey;
+    border-radius: 3px;
+
+    &:hover {
+        text-decoration: none;
+        box-shadow: 0 10px 20px rgba($black, 0.2);
+        transform: translateY(-3px);
+    }
+
+    &:focus {
+        outline: 2px groove $black;
+    }
+
+}
+
+.btn-primary {
+    @extend button;
+    height: fit-content;
+    color: $white;
+    background-color: $secondary;
+
+    &:hover {
+        color: white;
+        background-color: $secondaryDark;
+        box-shadow: 0 10px 20px rgba($black, 0.2);
+        transform: translateY(-3px);
+    }
+
+    &.over-dark {
+        background-color: $secondaryDark;
+
+        &:hover {
+            background-color: $secondary;
+        }
+    }
+
+    &:disabled {
+        background-color: $secondaryDark;
+    }
+}
+
+.btn-secondary {
+    @extend button;
+    height: fit-content;
+    border: 2px solid $secondary;
+    color: $secondary;
+    background-color: transparent;
+
+    &:hover {
+        color: $white;
+        background-color: $secondary;
+    }
+
+    &.over-dark {
+        border-color: $secondaryDark;
+        color: $secondaryDark;
+
+        &:hover {
+            border-color: $secondary;
+            color: $white;
+        }
+    }
+}
