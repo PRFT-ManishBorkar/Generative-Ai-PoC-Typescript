@@ -234,7 +234,7 @@
 
         @media (min-width: $breakpoint-md) {
             flex-direction: row-reverse;
-            width: auto;
+            justify-content: flex-end;
         }
 
         div {
@@ -245,6 +245,7 @@
 
             @media (min-width: $breakpoint-md) {
                 margin-left: 20px;
+                margin-bottom: 0;
                 width: auto;
             }
 
