@@ -1,4 +1,3 @@
-import { useState } from "react";
 import PdpComp from "./Component/PdpComp";
 import Header from "./Component/Layout/Header";
 import Footer from "./Component/Layout/Footer";
