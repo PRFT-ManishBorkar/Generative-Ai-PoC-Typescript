@@ -8,9 +8,9 @@ export default defineConfig(({ command }) => {
     base: "/",
   };
 
-  // if (command !== "serve") {
-  //   config.base = "/WriterPoC";
-  // }
+  if (command !== "serve") {
+    config.base = "/WriterPoC/";
+  }
 
   return config;
 });
