@@ -183,6 +183,14 @@
 
         button {
             width: 100%;
+
+            &:disabled {
+                cursor: not-allowed;
+            }
+
+            &.--loading {
+                cursor: wait;
+            }
         }
 
         @media (min-width: $breakpoint-md) {
@@ -216,6 +224,45 @@
         &:hover {
             box-shadow: 0 10px 20px rgba($black, 0.2);
             transform: translateY(-3px);
+        }
+    }
+
+    &__summary {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @media (min-width: $breakpoint-md) {
+            flex-direction: row-reverse;
+            width: auto;
+        }
+
+        div {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            margin-bottom: 20px;
+
+            @media (min-width: $breakpoint-md) {
+                margin-left: 20px;
+                width: auto;
+            }
+
+            span {
+                font-weight: 700;
+            }
+        }
+
+        input {
+            color: $darkgrey;
+            border: 2px solid $lightgrey;
+            border-radius: 5px;
+            margin-left: 10px;
+            padding: 8px;
+            width: 20px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 16px;
         }
     }
 

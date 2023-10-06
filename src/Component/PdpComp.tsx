@@ -64,6 +64,7 @@ function PdpComp() {
     errorDetails: false,
   });
   const [showContentList, setShowContentList] = useState(false);
+  const [spoints, setSpoints] = useState("3");
 
   const imgInputRef = useRef<HTMLInputElement | null>(null);
   const nameRef = useRef<HTMLInputElement | null>(null);
@@ -83,6 +84,12 @@ function PdpComp() {
     if (val?.style) {
       val.style.height = "auto";
       val.style.height = val.scrollHeight - 20 + "px";
+    }
+    if (pdetails !== "") {
+      setError({
+        ...error,
+        errorDetails: false,
+      });
     }
   }, [pdetails]);
 
@@ -114,7 +121,12 @@ function PdpComp() {
       }
     } else if (type === "summary") {
       if (pdetails !== "") {
-        summarizeContent();
+        const numb = parseInt(spoints);
+        if (numb >= 1 && numb <= 10) {
+          summarizeContent();
+        } else {
+          alert("Please enter summary points between 1 to 10 only");
+        }
       } else {
         setError({
           ...error,
@@ -221,7 +233,7 @@ function PdpComp() {
               name: "Text",
             },
             {
-              value: ["5"],
+              value: [`${spoints}`],
               name: "Number of bullets",
             },
           ],
@@ -375,7 +387,14 @@ function PdpComp() {
             <div className="pdpcomp__textareaInput">
               <label htmlFor="pdetails">Product Description</label>
               {loadContent.summary && (
-                <p className="pdpcomp__desctitle">Loading product summary...</p>
+                <p className="pdpcomp__desctitle">
+                  Generating product summary...
+                </p>
+              )}
+              {loadContent.content && (
+                <p className="pdpcomp__desctitle">
+                  Generating product description...
+                </p>
               )}
               {showContentList && (
                 <>
@@ -400,11 +419,7 @@ function PdpComp() {
                   <textarea
                     name="pdetails"
                     id="pdetails"
-                    placeholder={
-                      loadContent.content
-                        ? "Loading product description..."
-                        : "Product Description"
-                    }
+                    placeholder={"Product Description"}
                     value={pdetails}
                     onChange={handleInput}
                     ref={detailRef}
@@ -427,13 +442,27 @@ function PdpComp() {
                 {"Genrate Content"}
               </button>
               {/* <button className="btn-primary">Check Content</button> */}
-              <button
-                className="btn-primary"
-                onClick={() => handleValidation("summary")}
-                disabled={loadContent.summary}
-              >
-                {"Generate Summary"}
-              </button>
+              <div className="pdpcomp__summary">
+                {pdetails && (
+                  <div>
+                    <span>Summary in points :</span>
+                    <input
+                      type="phone"
+                      value={spoints}
+                      maxLength={2}
+                      onChange={(e) => setSpoints(e.target.value)}
+                    />
+                  </div>
+                )}
+
+                <button
+                  className="btn-primary"
+                  onClick={() => handleValidation("summary")}
+                  disabled={loadContent.summary}
+                >
+                  {"Generate Summary"}
+                </button>
+              </div>
             </div>
           </div>
         </div>
